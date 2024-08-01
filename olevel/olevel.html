@@ -1,0 +1,211 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>CICST</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="jquery.js"></script>
+
+
+      <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+      <script type="text/javascript" src="jquery-3.3.1.slim.min.js"></script>
+      <script type="text/javascript" src="bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="bootstrap-select.min.css">
+      <script type="text/javascript" src="bootstrap-select.min.js"></script>
+
+  <style id="compiled-css" type="text/css">
+      /*
+*
+* ==========================================
+* FOR DEMO PURPOSE
+* ==========================================
+*
+*/
+body {
+    background: #e8cbc0;
+    background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+    background: linear-gradient(to right, #e8cbc0, #636fa4);
+    min-height: 100vh;
+}
+
+.bootstrap-select .bs-ok-default::after {
+    width: 0.3em;
+    height: 0.6em;
+    border-width: 0 0.1em 0.1em 0;
+    transform: rotate(45deg) translateY(0.5rem);
+}
+
+.btn.dropdown-toggle:focus {
+    outline: none !important;
+}
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+
+    <script src="/js/stringify.js?434d1e0d451c0b5e763ada9a381bf0dc008ed70a" charset="utf-8"></script>
+    <script>
+      const customConsole = (w) => {
+        const pushToConsole = (payload, type) => {
+          w.parent.postMessage({
+            console: {
+              payload: stringify(payload),
+              type:    type
+            }
+          }, "*")
+        }
+
+        w.onerror = (message, url, line, column) => {
+          // the line needs to correspond with the editor panel
+          // unfortunately this number needs to be altered every time this view is changed
+          line = line - 70
+          if (line < 0){
+            pushToConsole(message, "error")
+          } else {
+            pushToConsole(`[${line}:${column}] ${message}`, "error")
+          }
+        }
+
+        let console = (function(systemConsole){
+          return {
+            log: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "log")
+              systemConsole.log.apply(this, args)
+            },
+            info: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "info")
+              systemConsole.info.apply(this, args)
+            },
+            warn: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "warn")
+              systemConsole.warn.apply(this, args)
+            },
+            error: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "error")
+              systemConsole.error.apply(this, args)
+            },
+            system: function(arg){
+              pushToConsole(arg, "system")
+            },
+            clear: function(){
+              systemConsole.clear.apply(this, {})
+            },
+            time: function(){
+              let args = Array.from(arguments)
+              systemConsole.time.apply(this, args)
+            },
+            assert: function(assertion, label){
+              if (!assertion){
+                pushToConsole(label, "log")
+              }
+
+              let args = Array.from(arguments)
+              systemConsole.assert.apply(this, args)
+            }
+          }
+        }(window.console))
+
+        window.console = { ...window.console, ...console }
+
+        console.system("Running fiddle")
+      }
+
+      if (window.parent){
+        customConsole(window)
+      }
+    </script>
+</head>
+<body>
+<form action="../">
+
+        <div class="container py-5">
+    <!-- For demo purpose -->
+    <div class="row text-center text-white mb-5 py-4">
+        <div class="col-lg-9 mx-auto">
+            <h1 class="display-4">CICST DIPLOMA DISTRIBUTION SERVER</h1>
+            <p class="lead mb-0">Created By <a href="http://facebook.com/" class=" text-white">
+                <u>Akash</u></a>, for CICST.
+            </p>
+            <p class="lead">Please Select Your Roll No. /Reg. No. Given Below <a href="https://cicstatarra.blogspot.com/" class="text-white font-italic">
+                <u><b><br>Back To Home</b></u></a>
+            </p>
+        </div>
+    </div>
+	<!-- End -->
+    
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <label class="text-white mb-3 lead">Select Your Roll/Reg Number</label>
+            <!-- Multiselect dropdown -->
+            <div class="dropdown bootstrap-select show-tick w-100">
+			<div class="dropdown bootstrap-select show-tick w-100 dropup"><select multiple="" data-style="bg-white rounded-pill px-4 py-3 shadow-sm " class="selectpicker w-100" tabindex="-98" onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+  					  <option value = "new/1077012.html">1077012</option>
+					  <option value = "new/1105997.html">1105997</option>
+					  <option value = "new/1106042.html">1106042</option>
+					  <option value = "new/1141257.html">1141257</option>
+            </select>
+			
+			<div class="dropdown-menu " role="combobox">
+			<div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+			<ul class="dropdown-menu inner show">
+			</ul>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+</form>
+    <script type="text/javascript">//<![CDATA[
+
+
+$(function () {
+    $('.selectpicker').selectpicker();
+});
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "rxqpfoe2"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+    <script>
+      let allLines = []
+
+      window.addEventListener("message", (message) => {
+        if (message.data.console){
+          let insert = document.querySelector("#insert")
+          allLines.push(message.data.console.payload)
+          insert.innerHTML = allLines.join(";\r")
+
+          let result = eval.call(null, message.data.console.payload)
+          if (result !== undefined){
+            console.log(result)
+          }
+        }
+      })
+    </script>
+
+
+
+
+</body></html>
